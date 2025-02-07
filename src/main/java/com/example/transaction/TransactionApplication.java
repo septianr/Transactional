@@ -1,4 +1,4 @@
-package com.example.transaction.transaction;
+package com.example.transaction;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

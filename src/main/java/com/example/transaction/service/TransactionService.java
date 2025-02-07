@@ -1,12 +1,11 @@
-package com.example.transaction.transaction.service;
+package com.example.transaction.service;
 
-import com.example.transaction.transaction.domain.dto.TransferRequestDTO;
-import com.example.transaction.transaction.domain.enums.TransactionType;
-import com.example.transaction.transaction.domain.model.TransactionHistory;
-import com.example.transaction.transaction.repository.TransactionHistoryRepository;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import com.example.transaction.domain.dto.TransferRequestDTO;
+import com.example.transaction.domain.enums.TransactionType;
+import com.example.transaction.domain.model.TransactionHistory;
+import com.example.transaction.repository.TransactionHistoryRepository;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +13,13 @@ import java.util.Date;
 
 
 @Service
-@Slf4j
-@RequiredArgsConstructor
 public class TransactionService {
 
-    private final TransactionHistoryRepository transactionHistoryRepository;
-    private final RabbitTemplate rabbitTemplate;
+    @Autowired
+    private TransactionHistoryRepository transactionHistoryRepository;
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     public ResponseEntity<?> transfer(TransferRequestDTO request){
 
@@ -33,7 +33,6 @@ public class TransactionService {
             saveTransactionHistory(request);
             return ResponseEntity.ok(request);
         } catch (Exception e){
-            log.error(e.getMessage());
             return null;
         } finally {
             rabbitTemplate.convertAndSend("TransactionQueue", request);

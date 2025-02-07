@@ -1,4 +1,4 @@
-package com.example.transaction.transaction.config;
+package com.example.transaction.config;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;

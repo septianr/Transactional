@@ -1,21 +1,18 @@
-package com.example.transaction.transaction.domain.model;
+package com.example.transaction.domain.model;
 
-import com.example.transaction.transaction.domain.enums.TransactionType;
+import com.example.transaction.domain.enums.TransactionType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Setter
-@Getter
 @Table(name = "transaction_history")
-@NoArgsConstructor
+@Data
+@Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class TransactionHistory {
 
     @Id
