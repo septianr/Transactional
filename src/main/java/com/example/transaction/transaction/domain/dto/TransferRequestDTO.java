@@ -1,4 +1,4 @@
-package com.example.transaction.transaction.dto;
+package com.example.transaction.transaction.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,10 +11,9 @@ import java.math.BigDecimal;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class HistoryDTO {
+public class TransferRequestDTO {
 
     private String name;
     private String accountNumber;
-
-    private BigDecimal balance;
+    private BigDecimal amount;
 }

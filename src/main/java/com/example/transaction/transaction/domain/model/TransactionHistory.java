@@ -1,5 +1,6 @@
-package com.example.transaction.transaction.model;
+package com.example.transaction.transaction.domain.model;
 
+import com.example.transaction.transaction.domain.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,14 +8,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Setter
 @Getter
-@Table(name = "history")
+@Table(name = "transaction_history")
 @NoArgsConstructor
 @AllArgsConstructor
-public class History {
+public class TransactionHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,9 +24,14 @@ public class History {
 
     private String name;
 
+    private TransactionType transactionType;
+
     @Column(length = 10)
     private String accountNumber;
 
-    private BigDecimal balance;
+    private BigDecimal amount;
+
+    private Date transactionDate;
+
 
 }
