@@ -40,7 +40,7 @@ public class TransactionService {
 
     }
 
-    private void saveTransactionHistory(TransferRequestDTO request) {
+    public void saveTransactionHistory(TransferRequestDTO request) {
         TransactionHistory transactionHistory = new TransactionHistory();
         transactionHistory.setName(request.getName());
         transactionHistory.setTransactionType(TransactionType.TRANSFER);

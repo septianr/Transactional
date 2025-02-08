@@ -7,12 +7,12 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
-@Table(name = "transaction_history")
+// @Table(name = "transaction_history")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class TransactionHistory {
 
     @Id
